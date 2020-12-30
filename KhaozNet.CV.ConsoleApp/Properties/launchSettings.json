@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "KhaozNet.CV.ConsoleApp": {
+      "commandName": "Project",
+      "commandLineArgs": "D:\\Development\\Projects\\KhaozNet\\KhaozNet.CV\\KhaozNet.CV.v3\\KhaozNet.CV.Web D:\\Development\\Projects\\KhaozNet\\KhaozNet.CV\\temp"
+    }
+  }
+}

@@ -1,17 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
+using KhaozNet.CV.Domain;
 using KhaozNet.CV.Domain.Entity;
 using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
 
 namespace KhaozNet.CV.Web.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel : PageModel, IRazorModel
     {
         private readonly IWebHostEnvironment _hostingEnvironment;
 
@@ -22,11 +18,13 @@ namespace KhaozNet.CV.Web.Pages
             _hostingEnvironment = hostingEnvironment;
         }
 
-        public void OnGet()
+        public Task OnGet()
         {
             string contentRootPath = _hostingEnvironment.ContentRootPath;
             string cvDataJson = System.IO.File.ReadAllText(contentRootPath + "/cv.json");
             CvData = JsonConvert.DeserializeObject<CvJsonData>(cvDataJson);
+
+            return Task.CompletedTask;
         }
     }
 }
