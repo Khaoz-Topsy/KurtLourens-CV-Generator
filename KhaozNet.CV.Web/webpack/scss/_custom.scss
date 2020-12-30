@@ -1,0 +1,146 @@
+@import 'announcements';
+@import 'dark';
+
+.mt-1 {
+    margin-top: 1em;
+}
+
+img.lazy[src*="loader.svg"] {
+    padding: .5em;
+    border-radius: 100%;
+    background-color: transparent;
+
+    &.invert {
+        -webkit-filter: invert(.8);
+        filter: invert(.8);
+    }
+}
+
+strong {
+    a {
+        text-decoration: none;
+        border-bottom: unset;
+        font-weight: 600;
+    }
+}
+
+small {
+    font-size: .85em;
+
+    a {
+        text-decoration: none;
+        border-bottom: unset;
+    }
+}
+
+#header {
+    h1 {
+        span {
+            font-size: 0.7em;
+            display: block;
+            margin-top: .25em;
+
+            small {
+                font-size: 0.9em;
+            }
+        }
+    }
+
+    h4 {
+        margin: 0;
+        font-size: 1em;
+
+        @include breakpoint('<=medium') {
+            &:not(:last-child) {
+                display: inline-block;
+                border-right: 1px solid red;
+                padding-right: 0.5em;
+                padding-left: 0.15em;
+            }
+        }
+
+        @include breakpoint('<=small') {
+            &:not(:last-child) {
+                display: block;
+                border-right: unset;
+                padding: 0;
+            }
+        }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 2em;
+    }
+}
+
+@include breakpoint('<large') {
+    body {
+        &.is-loading {
+            overflow: visible;
+        }
+
+        .full-page-loader {
+            display: none;
+        }
+    }
+}
+
+.upsideDown {
+    transform: rotateX(180deg);
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+img,
+br {
+    @extend .noselect;
+}
+
+h2.noselect,
+.cursor-pointer {
+    cursor: pointer;
+}
+
+::selection {
+    background: #505050;
+    color: white;
+    /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+    background: #505050;
+    color: white;
+    /* Gecko Browsers */
+}
+
+.hidden {
+    display: none;
+}
+
+.max-h-50 {
+    max-height: 50px;
+}
+
+li>a>img {
+    margin-bottom: -5px;
+    max-height: 1.75em;
+    max-width: 1.75em;;
+}
+
+.icon.icon-2x {
+    font-size: 32pt;
+}

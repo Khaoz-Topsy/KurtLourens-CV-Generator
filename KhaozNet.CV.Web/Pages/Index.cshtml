@@ -1,0 +1,358 @@
+﻿@page
+@using KhaozNet.CV.Domain.Entity
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="full-page-loader initial intro-background"></div>
+    <div class="full-page-loader initial">
+        <div class="cssload-container">
+            <ul class="cssload-flex-container">
+                <li style="list-style-type: none;">
+                    <img src="assets/images/loader.svg" alt="loading-animation">
+                    <h2 class="largeHeading">Welcome</h2>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="display: none">
+        <div class="h-card">
+            <a class="p-name u-url" href="https://kurtlourens.com/" title="Kurt Lourens">Kurt Lourens</a>
+            <img class="u-logo u-photo" src="https://kurtlourens.com/assets/images/KurtAvatar.svg" alt="Kurt Logo" />
+            <div class="p-category">Software Engineer</div>
+            <div class="p-note">
+                My goal is to continue learning all that I can and to live on the bleeding edge of tech.
+            </div>
+        </div>
+    </div>
+    <div id="announcements" onclick="KurtLourens.clearAnnouncements()"></div>
+    <header id="header">
+        <i id="darkModeSwitch" onclick="KurtLourens.darkModeToggle()" class="cursor-pointer icon icon-2x icon-brightness_4"></i>
+        <div class="inner">
+            <a href="https://kurtlourens.com" class="image avatar" title="Kurt Lourens avatar" itemprop="url">
+                <img src="assets/images/loader.svg" data-src="assets/images/KurtAvatar.svg" class="lazy"
+                     alt="Kurt Lourens Avatar" title="Kurt Lourens Avatar" />
+            </a>
+            <h1>
+                <strong itemprop="givenName name familyName">Kurt Lourens</strong>&nbsp;<span>
+                    Software
+                    Engineer&nbsp;<br /><small>
+                        Red
+                        Ruby IT Co-Owner
+                    </small>
+                </span>
+            </h1>
+            <h4 itemprop="description">.Net Core Advocate</h4>
+            <h4 itemprop="description">Crazy about Javasript Frameworks</h4>
+            <h4 itemprop="description">Implementing PWA everywhere</h4>
+            <h4 itemprop="description">Open Source Contributor</h4>
+            <h4 itemprop="description">Arduino Tinkerer</h4>
+            <h4 itemprop="description">Uses too many Emojis 🤘</h4>
+            <div id="pwa-install" class="mt-1 hidden cursor-pointer" onclick="KurtLourens.addToHomeScreen()">
+                <img src="assets/images/pwa.png" class="max-h-50" alt="Install as PWA" />
+            </div>
+            <div>
+                <a href="https://play.google.com/store/apps/details?id=com.kurt_lourens_cv" class="image"
+                   title="Kurt Lourens CV App" alt="PlayStoreBadge" target="_blank" rel="noopener">
+                    <img src="assets/images/playStore.png" class="max-h-50" alt="PlayStoreBadge" />
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div id="main">
+        <section id="about">
+            <header class="major">
+                <h2>About Kurt Lourens</h2>
+            </header>
+            <p>
+                I found a love for computers in boarding school, I would spend many if not all break times playing games
+                and programming (then using Delphi). My interest in I.T. grew as I entered University to study a BSC
+                I.T. to become a&nbsp;<span itemprop="jobTitle">Software Engineer</span>. During my degree I found like
+                minded individuals and joined&nbsp;
+                <strong>
+                    <a href="http://www.redrubyit.co.za" class="color-ruby" target="_blank" rel="noopener"
+                       title="redrubyit" alt="redrubyit">Red Ruby IT</a>
+                </strong>&nbsp;as a Co-Owner. I have learned
+                so much from working at&nbsp;<strong itemprop="owns" itemscope
+                                                     itemtype="http://schema.org/OwnershipInfo">
+                    <a href="http://www.redrubyit.co.za" class="color-ruby"
+                       target="_blank" rel="noopener" title="redrubyit" alt="redrubyit" itemprop="url">
+                        <span itemprop="name">Red Ruby IT</span>
+                    </a>
+                </strong>&nbsp; and I am so lucky to be doing
+                something that I love. My goal is to continue learning all that I can and to live on the bleeding edge
+                of tech until it bites me in the ass 😂. I am currently living in&nbsp;<a href="https://goo.gl/maps/94uXM5Mgd362" target="_blank" rel="noopener"
+                                                                                          title="Johannesburg, South africa" itemprop="address">
+                    &nbsp;Johannesburg, South africa
+                    🌍
+                </a>.
+            </p>
+            <small>
+                P.S. I also have a&nbsp;<strong>
+                    <a href="https://blog.kurtlourens.com" target="_blank" rel="noopener"
+                       title="Kurt's blog">blog</a>
+                </strong>, Inside my Mind - by Kurt Lourens. I havent been making
+                use of it as much as I could have, but I have written an article on it about how I made this site and
+                all the effort I put in to make it the best that it could be&nbsp;<strong>
+                    <a href="https://blog.kurtlourens.com/kurtlourens-com-redesigned/" target="_blank" rel="noopener"
+                       title="Kurt's blog">click here to read it</a>
+                </strong>&nbsp;😁.&nbsp;
+            </small>
+            <small itemprop="nationality" itemscope itemtype="http://schema.org/Country">
+                <strong itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    Proudly&nbsp;<a itemprop="url" href="https://goo.gl/maps/hiGXkzqRBuz" target="_blank" rel="noopener"
+                                    title="South Africa">
+                        <span itemprop="addressCountry">South Africa</span>n
+                    </a>
+                </strong>
+            </small>
+        </section>
+
+        <section id="work">
+            <h2 class="noselect" onclick="KurtLourens.toggleChildRowVisibility('work')">
+                Work Experience&nbsp;<i class="icon icon-chevron-up upsideDown"></i>
+            </h2>
+            <div class="row" style="display: none;">
+                @foreach (WorkExperience work in Model.CvData.WorkExperiences)
+                {
+                    <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
+                        <div class="card full2">
+                            <div class="top-right">
+                                <img src="@work.image" class="company lazy invert" alt="@work.imageAlt" style=""><br>
+                                @if (!string.IsNullOrEmpty(work.timePeriodTextAlt))
+                                {
+                                    @Html.Raw("<span class=\"tool\" data-tip=\"" + @work.timePeriodTextAlt + "\">")
+                                }
+                                <p class="label @work.timePeriodClass">@work.timePeriodText</p>
+
+                                @if (!string.IsNullOrEmpty(@work.timePeriodTextAlt))
+                                {
+                                    @Html.Raw("</span>")
+                                }
+                            </div>
+                            <h2>
+                                <strong>@work.title</strong>
+                                <small>@work.location</small>
+                            </h2>
+                            @if (string.IsNullOrEmpty(@work.contentHtml))
+                            {
+                                <p>@work.content</p>
+                            }
+                            else
+                            {
+                                @Html.Raw(@work.contentHtml)
+                            }
+                        </div>
+                    </article>
+                }
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="noselect" onclick="KurtLourens.toggleChildRowVisibility('projects')">
+                Projects&nbsp;<i class="icon icon-chevron-up upsideDown"></i>
+            </h2>
+            <div class="row" style="display: none;">
+                @foreach (Project proj in Model.CvData.Projects)
+                {
+                    <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
+                        <div class="card full2">
+                            <div class="top-right">
+                                <img src="@proj.image" class="company lazy invert" alt="@proj.imageAlt" style=""><br>
+                                @if (!string.IsNullOrEmpty(proj.timePeriodTextAlt))
+                                {
+                                    @Html.Raw("<span class=\"tool\" data-tip=\"" + proj.timePeriodTextAlt + "\">")
+                                }
+                                <p class="label @proj.timePeriodClass">@proj.timePeriodText</p>
+
+                                @if (!string.IsNullOrEmpty(proj.timePeriodTextAlt))
+                                {
+                                    @Html.Raw("</span>")
+                                }
+                            </div>
+                            <h2>
+                                <strong>@proj.title</strong>
+                                @if (proj.links != null && proj.links.Count > 0)
+                                {
+                                    <small>
+                                        @for (int linkIndex = 0; linkIndex < proj.links.Count; linkIndex++)
+                                        {
+                                            Link link = proj.links[linkIndex];
+
+                                            string linkUrl = (link.url.Contains('?')
+                                                ? link.url + '&'
+                                                : link.url + '?') + "ref=kurtlourens.com";
+                                            <a href="@linkUrl" target="_blank" rel="noopener" title="@link.alt" alt="@link.alt">
+                                                @if (linkIndex > 0)
+                                                {
+                                                    @Html.Raw(", " + link.text);
+                                                }
+                                                else
+                                                {
+                                                    @link.text
+                                                }
+                                            </a>
+                                        }
+                                    </small>
+                                }
+                                else
+                                {
+                                    <small>@proj.location</small>
+                                }
+                            </h2>
+                            @if (string.IsNullOrEmpty(proj.contentHtml))
+                            {
+                                <p>@proj.content</p>
+                            }
+                            else
+                            {
+                                @Html.Raw(proj.contentHtml)
+                            }
+                        </div>
+                    </article>
+                }
+            </div>
+        </section>
+
+        <section id="certificates">
+            <h2 class="noselect" onclick="KurtLourens.toggleChildRowVisibility('certificates')">
+                Certificates&nbsp;<i class="icon icon-chevron-up upsideDown"></i>
+            </h2>
+            <div class="row" style="display: none;">
+                @foreach (Certificate cert in Model.CvData.Certificates)
+                {
+                    <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
+                        <div class="card full2">
+                            <div class="top-right">
+                                <img src="@cert.image" class="company lazy invert" alt="@cert.imageAlt" style=""><br>
+                                @if (!string.IsNullOrEmpty(cert.timePeriodTextAlt))
+                                {
+                                    @Html.Raw("<span class=\"tool\" data-tip=\"" + cert.timePeriodTextAlt + "\">")
+                                }
+                                <p class="label @cert.timePeriodClass">@cert.timePeriodText</p>
+
+                                @if (!string.IsNullOrEmpty(cert.timePeriodTextAlt))
+                                {
+                                    @Html.Raw("</span>")
+                                }
+                            </div>
+                            <h2>
+                                <strong>@cert.title</strong>
+                                <small>@cert.location</small>
+                            </h2>
+                            <p>@cert.content</p>
+                            <div class="pretty-button-container">
+                                @foreach (Button button in (cert.buttons ?? new List<Button>()))
+                                {
+                                    <a href="@button.url" target="_blank" rel="noopener" class="pretty-button -blue center" title="@button.alt" alt="@button.alt">@button.text</a>
+                                }
+                            </div>
+                        </div>
+                    </article>
+                }
+            </div>
+        </section>
+
+        <section id="aboutThisSite">
+            <h2 class="noselect" onclick="KurtLourens.toggleChildRowVisibility('aboutThisSite')">
+                About this Website <i class="icon icon-chevron-up upsideDown"></i>
+            </h2>
+            <div class="row" style="display: none;">
+                <p>
+                    I originally built this website while I was in university. I had very little understanding of html,
+                    css, and javascript. I mostly copy-pasted html with inline styles and grabbed javascript
+                    from Stack Overflow to make the site 'work'. Around the&nbsp;<small class="label label-kurt">
+                        19th
+                        November 2018
+                    </small>&nbsp;I started rebuilding the site with the intention of making it small,
+                    fast, SEO
+                    friendly and to apply as much of what I had learned onto the new site. I wrote a blog post about the
+                    redesign&nbsp;<strong>
+                        <a href="https://blog.kurtlourens.com/kurtlourens-com-redesigned/"
+                           target="_blank" rel="noopener" title="Kurt's blog post on kurtlourens.com redesign">
+                            click
+                            here to read
+                            it
+                        </a>
+                    </strong>.
+                </p>
+                <div class="col-12">
+                    <span>As part of the redesign this website has an automated CI / CD pipeline:&nbsp;</span>
+                    <img src="https://khaoznet.visualstudio.com/KhaozNet/_apis/build/status/KhaozNet.CV.v2%20-%20CI"
+                         alt="Website build status" />
+                    <img src="https://vsrm.dev.azure.com/khaoznet/_apis/public/Release/badge/b5441643-fd7c-4330-92d7-bffc23a7e0a4/15/20"
+                         alt="Website deployment status" />
+                </div>
+                <div class="col-12">
+                    <span>
+                        The&nbsp;<strong>
+                            <a href="https://play.google.com/store/apps/details?id=com.kurt_lourens_cv"
+                               target="_blank" rel="noopener" title="GooglePlayStoreKurtsCVApp"
+                               alt="GooglePlayStoreKurtsCVApp">Flutter CV App</a>
+                        </strong>&nbsp;also has an automated
+                        CI / CD
+                        pipeline:&nbsp;
+                    </span>
+                    <img src="https://khaoznet.visualstudio.com/KhaozNet/_apis/build/status/KhaozNet.FlutterCV%20-%20CI"
+                         alt="Website build status" />
+                    <img src="https://khaoznet.vsrm.visualstudio.com/_apis/public/Release/badge/b5441643-fd7c-4330-92d7-bffc23a7e0a4/18/25"
+                         alt="Website deployment status" />
+                </div>
+                <div class="col-12">
+                    <p>
+                        I created a blog post about my Flutter App's CI / CD pipeline,&nbsp;<strong>
+                            <a href="https://blog.kurtlourens.com/flutter-with-ci-cd/" target="_blank" rel="noopener"
+                               title="Kurt's blog post on Flutter with CI CD">click here to read it</a>
+                        </strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                <li>
+                    <a href="https://twitter.com/KhaozTopsy" rel="noopener noreferrer me" class="icon icon-twitter"
+                       alt="Twitter" title="Twitter" aria-label="Facebook"></a>
+                </li>
+                <li>
+                    <a href="https://facebook.com/KurtLourensSoftwareEngineer" rel="noopener noreferrer me"
+                       class="icon icon-facebook" alt="Facebook" title="Facebook" aria-label="Facebook"></a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/khaozkurt" rel="noopener noreferrer me" class="icon icon-instagram"
+                       alt="Instagram" title="Instagram" aria-label="Instagram"></a>
+                </li>
+                <li>
+                    <a href="https://remoteconfigs.com" class="icon" alt="RemoteConfigs" title="RemoteConfigs"
+                       aria-label="RemoteConfigs">
+                        <img src="/assets/images/company/RemoteConfigsAlt.png" class="icon"
+                             alt="RemoteConfigs" title="RemoteConfigs" aria-label="RemoteConfigs" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Khaoz-Topsy" rel="noopener noreferrer me" class="icon icon-github"
+                       alt="Github" title="Github" aria-label="Github"></a>
+                </li>
+                <li>
+                    <a href="https://za.linkedin.com/in/kurtlourensza" rel="noopener noreferrer me"
+                       class="icon icon-linkedin" alt="Linkedin" title="Linkedin" aria-label="Linkedin"></a>
+                </li>
+                <li>
+                    <a href="#protectEmailFromBots" onclick="KurtLourens.sendEmail();" class="icon icon-envelope-o" alt="Email"
+                       title="Email" aria-label="Email"></a>
+                </li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Kurt Lourens</li>
+                <li>
+                    Design:&nbsp;<a href="https://html5up.net/strata" target="_blank" rel="noopener noreferrer"
+                                    title="html5up.net">HTML5 UP Strata</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
