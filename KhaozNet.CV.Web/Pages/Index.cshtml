@@ -61,10 +61,10 @@
         <p>
             I found a love for computers in boarding school, I would spend many if not all break times playing games and programming (then using Delphi). My interest in I.T. grew as I entered University to study a BSC I.T. to become a&nbsp;Software Engineer. During my degree I found like minded individuals and joined&nbsp;
             <strong>
-                <a href="http://www.redrubyit.co.za" class="color-ruby" target="_blank" rel="noopener noreferrer" title="RedRubyIT" alt="RedRubyIT">Red Ruby IT</a>
+                <a href="https://www.redrubyit.co.za" class="color-ruby" target="_blank" rel="noopener noreferrer" title="RedRubyIT" alt="RedRubyIT">Red Ruby IT</a>
             </strong>&nbsp;as a Co-Owner. I have learned so much from working at&nbsp;
             <strong>
-                <a href="http://www.redrubyit.co.za" class="color-ruby" target="_blank" rel="noopener noreferrer" title="RedRubyIT" alt="RedRubyIT">
+                <a href="https://www.redrubyit.co.za" class="color-ruby" target="_blank" rel="noopener noreferrer" title="RedRubyIT" alt="RedRubyIT">
                     Red Ruby IT
                 </a>
             </strong>&nbsp; and I am so lucky to be doing something that I love. My goal is to continue learning all that I can and to live on the bleeding edge of tech until it bites me in the ass 😂. I am currently living in&nbsp;<a href="https://goo.gl/maps/94uXM5Mgd362" target="_blank" rel="noopener noreferrer" title="Johannesburg, South africa">&nbsp;Johannesburg, South Africa 🌍
@@ -263,29 +263,34 @@
 <footer id="footer">
     <div class="inner">
         <ul class="icons">
-            <li>
-                <a href="https://twitter.com/KhaozTopsy" rel="noopener noreferrer me" class="icon icon-twitter" alt="Twitter" title="Twitter" aria-label="Facebook"></a>
-            </li>
-            <li>
-                <a href="https://facebook.com/KurtLourensSoftwareEngineer" rel="noopener noreferrer me" class="icon icon-facebook" alt="Facebook" title="Facebook" aria-label="Facebook"></a>
-            </li>
-            <li>
-                <a href="https://instagram.com/khaozkurt" rel="noopener noreferrer me" class="icon icon-instagram" alt="Instagram" title="Instagram" aria-label="Instagram"></a>
-            </li>
-            <li>
-                <a href="https://remoteconfigs.com" class="icon" alt="RemoteConfigs" title="RemoteConfigs" aria-label="RemoteConfigs">
-                    <img src="/assets/images/company/RemoteConfigsAlt.png" class="icon" alt="RemoteConfigs" title="RemoteConfigs" aria-label="RemoteConfigs" />
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/Khaoz-Topsy" rel="noopener noreferrer me" class="icon icon-github" alt="Github" title="Github" aria-label="Github"></a>
-            </li>
-            <li>
-                <a href="https://za.linkedin.com/in/kurtlourensza" rel="noopener noreferrer me" class="icon icon-linkedin" alt="LinkedIn" title="LinkedIn" aria-label="Linkedin"></a>
-            </li>
-            <li>
-                <a href="#protectEmailFromBots" id="protectEmailFromBots" onclick="KurtLourens.sendEmail();" class="icon icon-envelope-o" alt="Email" title="Email" aria-label="Email"></a>
-            </li>
+            @foreach (SocialLink social in Model.CvData.Details.SocialLinks)
+            {
+                string linkUrl = (social.Link.Contains('?')
+                    ? social.Link + '&'
+                    : social.Link + '?') + "ref=kurtlourens.com";
+
+                if (!string.IsNullOrEmpty(social.Image))
+                {
+                    <li>
+                        <a href="@linkUrl" rel="noopener noreferrer me" class="@social.ClassNames" alt="@social.Title" title="@social.Title" aria-label="@social.Title">
+                            <img src="@social.Image" class="@social.ClassNames" alt="@social.Title" title="@social.Title" aria-label="@social.Title" />
+                        </a>
+                    </li>
+                    continue;
+                }
+
+                if (!string.IsNullOrEmpty(social.OnClick))
+                {
+                    <li>
+                        <a href="@linkUrl" rel="noopener noreferrer me" onclick="KurtLourens.sendEmail();" class="@social.ClassNames" alt="@social.Title" title="@social.Title" aria-label="@social.Title"></a>
+                    </li>
+                    continue;
+                }
+
+                <li>
+                    <a href="@linkUrl" rel="noopener noreferrer me" class="@social.ClassNames" alt="@social.Title" title="@social.Title" aria-label="@social.Title"></a>
+                </li>
+            }
         </ul>
         <ul class="copyright">
             <li>

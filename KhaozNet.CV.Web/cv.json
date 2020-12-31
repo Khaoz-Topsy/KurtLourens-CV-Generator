@@ -8,6 +8,45 @@
       "Open Source Contributor",
       "Arduino Tinkerer",
       "Uses too many Emojis 🤘"
+    ],
+    "socialLinks": [
+      {
+        "link": "https://twitter.com/KhaozTopsy",
+        "classNames": "icon icon-twitter",
+        "title": "Twitter"
+      },
+      {
+        "link": "https://facebook.com/KurtLourensSoftwareEngineer",
+        "classNames": "icon icon-facebook",
+        "title": "Facebook"
+      },
+      {
+        "link": "https://www.youtube.com/channel/UCpKNMVk7ZWvBk-psQQZqz5w",
+        "classNames": "icon icon-youtube",
+        "title": "Youtube"
+      },
+      {
+        "link": "https://remoteconfigs.com",
+        "classNames": "icon",
+        "title": "RemoteConfigs",
+        "image": "/assets/images/company/RemoteConfigsAlt.png"
+      },
+      {
+        "link": "https://github.com/Khaoz-Topsy",
+        "classNames": "icon icon-github",
+        "title": "Github"
+      },
+      {
+        "link": "https://za.linkedin.com/in/kurtlourensza",
+        "classNames": "icon icon-linkedin",
+        "title": "LinkedIn"
+      },
+      {
+        "link": "#protectEmailFromBots",
+        "classNames": "icon icon-envelope-o",
+        "onClick": "KurtLourens.sendEmail();",
+        "title": "Email"
+      }
     ]
   },
   "workExperiences": [

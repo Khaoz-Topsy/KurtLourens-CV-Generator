@@ -169,9 +169,18 @@ li>a>img {
     margin-bottom: -5px;
     max-height: 1.75em;
     max-width: 1.75em;
-    ;
 }
 
 .icon.icon-2x {
     font-size: 32pt;
+}
+
+.h-card,
+.p-name,
+.u-url,
+.u-logo,
+.u-photo,
+.p-category,
+.p-note {
+    display: none;
 }
