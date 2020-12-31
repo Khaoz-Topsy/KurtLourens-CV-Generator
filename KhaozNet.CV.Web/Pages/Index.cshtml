@@ -27,21 +27,19 @@
 <header id="header">
     <i id="darkModeSwitch" onclick="KurtLourens.darkModeToggle()" class="cursor-pointer icon icon-2x icon-brightness_4"></i>
     <div class="inner">
-        <a href="https://kurtlourens.com" class="image avatar" title="Kurt Lourens avatar" itemprop="url">
-            <img src="assets/images/loader.svg" data-src="assets/images/KurtAvatar.svg" class="lazy" alt="Kurt Lourens Avatar" title="Kurt Lourens Avatar" />
+        <a href="https://kurtlourens.com" class="image avatar" title="Kurt Lourens avatar">
+            <img src="assets/images/loader.svg" data-src="@Model.CvData.Details.Image" class="lazy" alt="Kurt Lourens Avatar" title="Kurt Lourens Avatar" />
         </a>
         <h1>
-            <strong itemprop="givenName name familyName">Kurt Lourens</strong>&nbsp;
+            <strong>Kurt Lourens</strong>&nbsp;
             <span>Software Engineer&nbsp;<br />
                 <small>Red Ruby IT Co-Owner</small>
             </span>
         </h1>
-        <h4 itemprop="description">.Net Core Advocate</h4>
-        <h4 itemprop="description">Crazy about Javascript Frameworks</h4>
-        <h4 itemprop="description">Implementing PWA everywhere</h4>
-        <h4 itemprop="description">Open Source Contributor</h4>
-        <h4 itemprop="description">Arduino Tinkerer</h4>
-        <h4 itemprop="description">Uses too many Emojis 🤘</h4>
+        @foreach (string description in Model.CvData.Details.Descriptions)
+        {
+            <h4>@description</h4>
+        }
         <div id="pwa-install" class="mt-1 hidden cursor-pointer" onclick="KurtLourens.addToHomeScreen()">
             <img src="assets/images/pwa.png" class="max-h-50" alt="Install as PWA" />
         </div>
@@ -61,15 +59,15 @@
             <i><a href="https://about.me/kurt.lourens" target="_blank" rel="noopener noreferrer" title="about.me" alt="about.me">about.me/kurt.lourens</a></i>
         </header>
         <p>
-            I found a love for computers in boarding school, I would spend many if not all break times playing games and programming (then using Delphi). My interest in I.T. grew as I entered University to study a BSC I.T. to become a&nbsp;<span itemprop="jobTitle">Software Engineer</span>. During my degree I found like minded individuals and joined&nbsp;
+            I found a love for computers in boarding school, I would spend many if not all break times playing games and programming (then using Delphi). My interest in I.T. grew as I entered University to study a BSC I.T. to become a&nbsp;Software Engineer. During my degree I found like minded individuals and joined&nbsp;
             <strong>
                 <a href="http://www.redrubyit.co.za" class="color-ruby" target="_blank" rel="noopener noreferrer" title="RedRubyIT" alt="RedRubyIT">Red Ruby IT</a>
             </strong>&nbsp;as a Co-Owner. I have learned so much from working at&nbsp;
-            <strong itemprop="owns" itemscope itemtype="http://schema.org/OwnershipInfo">
-                <a href="http://www.redrubyit.co.za" class="color-ruby" target="_blank" rel="noopener noreferrer" title="RedRubyIT" alt="RedRubyIT" itemprop="url">
-                    <span itemprop="name">Red Ruby IT</span>
+            <strong>
+                <a href="http://www.redrubyit.co.za" class="color-ruby" target="_blank" rel="noopener noreferrer" title="RedRubyIT" alt="RedRubyIT">
+                    Red Ruby IT
                 </a>
-            </strong>&nbsp; and I am so lucky to be doing something that I love. My goal is to continue learning all that I can and to live on the bleeding edge of tech until it bites me in the ass 😂. I am currently living in&nbsp;<a href="https://goo.gl/maps/94uXM5Mgd362" target="_blank" rel="noopener noreferrer" title="Johannesburg, South africa" itemprop="address">&nbsp;Johannesburg, South Africa 🌍
+            </strong>&nbsp; and I am so lucky to be doing something that I love. My goal is to continue learning all that I can and to live on the bleeding edge of tech until it bites me in the ass 😂. I am currently living in&nbsp;<a href="https://goo.gl/maps/94uXM5Mgd362" target="_blank" rel="noopener noreferrer" title="Johannesburg, South africa">&nbsp;Johannesburg, South Africa 🌍
             </a>.
         </p>
         <small>
@@ -81,11 +79,11 @@
                 <a href="https://blog.kurtlourens.com/kurtlourens-com-redesigned/" target="_blank" rel="noopener noreferrer" title="Kurt's blog">click here to read it</a>
             </strong>&nbsp;😁.&nbsp;
         </small>
-        <small itemprop="nationality" itemscope itemtype="http://schema.org/Country">
-            <strong itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <small>
+            <strong>
                 Proudly&nbsp;
-                <a itemprop="url" href="https://goo.gl/maps/hiGXkzqRBuz" target="_blank" rel="noopener noreferrer" title="South Africa">
-                    <span itemprop="addressCountry">South Africa</span>n
+                <a href="https://goo.gl/maps/hiGXkzqRBuz" target="_blank" rel="noopener noreferrer" title="South Africa">
+                    South African
                 </a>
             </strong>
         </small>
@@ -98,42 +96,28 @@
         <div class="row" style="display: none;">
             @foreach (WorkExperience work in Model.CvData.WorkExperiences)
             {
-                if (!string.IsNullOrEmpty(work.PureHtml))
-                {
-                    @Html.Raw(work.PureHtml)
-                }
-                else
-                {
-                    <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
-                        <div class="card">
-                            <div class="top-right">
-                                <img src="@work.Image" class="company lazy invert" alt="@work.ImageAlt" style=""><br>
-                                @if (!string.IsNullOrEmpty(work.TimePeriodTextAlt))
-                                {
-                                    <span class="tool" data-tip="@work.TimePeriodTextAlt">
-                                        <p class="label @work.TimePeriodClass">@work.TimePeriodText</p>
-                                    </span>
-                                }
-                                else
-                                {
-                                    <p class="label @work.TimePeriodClass">@work.TimePeriodText</p>
-                                }
-                            </div>
-                            <h2>
-                                <strong>@work.Title</strong>
-                                <small>@work.Location</small>
-                            </h2>
-                            @if (string.IsNullOrEmpty(work.ContentHtml))
+                <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
+                    <div class="card">
+                        <div class="top-right">
+                            <img src="@work.Image" class="company lazy invert" alt="@work.ImageAlt"><br>
+                            @if (!string.IsNullOrEmpty(work.TimePeriodTextAlt))
                             {
-                                <p>@work.Content</p>
+                                <span class="tool" data-tip="@work.TimePeriodTextAlt">
+                                    <p class="label @work.TimePeriodClass">@work.TimePeriodText</p>
+                                </span>
                             }
                             else
                             {
-                                @Html.Raw(work.ContentHtml)
+                                <p class="label @work.TimePeriodClass">@work.TimePeriodText</p>
                             }
                         </div>
-                    </article>
-                }
+                        <h2>
+                            <strong>@work.Title</strong>
+                            <small>@work.Location</small>
+                        </h2>
+                        <p>@work.Content</p>
+                    </div>
+                </article>
             }
         </div>
     </section>
@@ -148,7 +132,7 @@
                 <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
                     <div class="card">
                         <div class="top-right">
-                            <img src="@proj.Image" class="company lazy invert" alt="@proj.ImageAlt" style=""><br>
+                            <img src="@proj.Image" class="company lazy invert" alt="@proj.ImageAlt"><br>
                             @if (!string.IsNullOrEmpty(proj.TimePeriodTextAlt))
                             {
                                 <span class="tool" data-tip="@proj.TimePeriodTextAlt">
@@ -175,7 +159,7 @@
                                         <a href="@linkUrl" target="_blank" rel="noopener noreferrer" title="@link.Alt" alt="@link.Alt">
                                             @if (linkIndex > 0)
                                             {
-                                                @Html.Raw(", " + link.Text)
+                                                @(", " + link.Text)
                                             }
                                             else
                                             {
@@ -190,14 +174,7 @@
                                 <small>@proj.Location</small>
                             }
                         </h2>
-                        @if (string.IsNullOrEmpty(proj.ContentHtml))
-                        {
-                            <p>@proj.Content</p>
-                        }
-                        else
-                        {
-                            @Html.Raw(proj.ContentHtml)
-                        }
+                        <p>@proj.Content</p>
                     </div>
                 </article>
             }
@@ -214,7 +191,7 @@
                 <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
                     <div class="card">
                         <div class="top-right">
-                            <img src="@cert.Image" class="company lazy invert" alt="@cert.ImageAlt" style=""><br>
+                            <img src="@cert.Image" class="company lazy invert" alt="@cert.ImageAlt"><br>
                             @if (!string.IsNullOrEmpty(cert.TimePeriodTextAlt))
                             {
                                 <span class="tool" data-tip="@cert.TimePeriodTextAlt">

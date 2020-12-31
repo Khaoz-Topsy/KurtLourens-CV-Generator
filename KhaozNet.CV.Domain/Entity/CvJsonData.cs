@@ -5,6 +5,9 @@ namespace KhaozNet.CV.Domain.Entity
 {
     public class CvJsonData
     {
+        [JsonProperty("details")]
+        public CvDetail Details { get; set; }
+
         [JsonProperty("workExperiences")]
         public List<WorkExperience> WorkExperiences { get; set; }
 

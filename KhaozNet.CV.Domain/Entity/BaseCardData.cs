@@ -28,9 +28,6 @@ namespace KhaozNet.CV.Domain.Entity
         [JsonProperty("content")]
         public string Content { get; set; }
 
-        [JsonProperty("contentHtml")]
-        public string ContentHtml { get; set; }
-
         [JsonProperty("location")]
         public string Location { get; set; }
     }

@@ -20,9 +20,6 @@ namespace KhaozNet.CV.Domain.Entity
         [JsonProperty("timePeriodTextColour")]
         public string TimePeriodTextColour { get; set; }
 
-        [JsonProperty("pureHtml")]
-        public string PureHtml { get; set; }
-
         [JsonProperty("buttons")]
         public List<Link> Buttons { get; set; }
     }
