@@ -456,8 +456,11 @@ header {
     }
 
     &.major {
+        margin-bottom: 1em;
+
         h2 {
             font-size: 2em;
+            margin-bottom: 0;
         }
     }
 }

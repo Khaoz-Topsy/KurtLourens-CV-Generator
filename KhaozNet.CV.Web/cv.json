@@ -23,13 +23,13 @@
             "imageAlt": "Entelect",
             "darkModeImage": "assets/images/company/EntelectAlt.png",
             "timePeriodText": "January 2017 – December 2018",
-			"timePeriodTextAlt": "2 years",
+            "timePeriodTextAlt": "2 years",
             "timePeriodClass": "label-entelect",
             "timePeriodColour": "#004C8E",
             "timePeriodTextColour": "#FFFFFF",
             "content": "Entelect really encourages all of it's employees to continuously learn, and when you are in I.T. that is extremely important. Entelect has given me many opportunities to grow my knowledge with the crazy amount of initiatives that they allow/provide. I have been exposed to new ways of structuring code, (CI) continuous integration, (CD) Continuous delivery and much more. I have worked on a few side projects for the teams that I have been a part of. Such as a Build Monitor and Timesheet App.",
             "location": "Johannesburg, South Africa",
-            "pureHtml": "<article class=\"col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item\"><div class=\"card full2\" itemprop=\"worksFor\" itemscope itemtype=\"http://schema.org/Organization\"> <div class=\"top-right\"> <img src=\"assets/images/loader.svg\" data-src=\"assets/images/company/Entelect.png\" class=\"company lazy invert\" alt=\"Entelect\"/> <br/> <p class=\"label label-entelect\">January 2017 – December 2018</p></div><h2 itemprop=\"address\" itemscope itemtype=\"http://schema.org/PostalAddress\"> <span><strong>Software Engineer</strong></span> <small itemprop=\"streetAddress\">Johannesburg, <span itemprop=\"addressCountry\">South Africa</span></small> </h2> <p> <strong itemprop=\"legalName\"><a href=\"http://www.entelect.co.za\" class=\"color-entelect\" target=\"_blank\" rel=\"noopener\" title=\"entelect\" alt=\"entelect\">Entelect</a></strong>&nbsp; really encourages all of it's employees to continuously learn, and when you are in I.T. that is extremely important.&nbsp;<strong><a href=\"http://www.entelect.co.za\" class=\"color-entelect\" target=\"_blank\" rel=\"noopener\" title=\"entelect\" alt=\"entelect\">Entelect</a></strong>&nbsp; has given me many opportunities to grow my knowledge with the crazy amount of initiatives that they allow/provide. I have been exposed to new ways of structuring code, (CI) continuous integration, (CD) Continuous delivery and much more. I have worked on a few side projects for the teams that I have been a part of. Such as a Build Monitor and Timesheet App.</p></div></article>"
+            "pureHtml": "<article class=\"col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item\"><div class=\"card\" itemprop=\"worksFor\" itemscope itemtype=\"http://schema.org/Organization\"> <div class=\"top-right\"> <img src=\"assets/images/loader.svg\" data-src=\"assets/images/company/Entelect.png\" class=\"company lazy invert\" alt=\"Entelect\"/> <br/> <p class=\"label label-entelect\">January 2017 – December 2018</p></div><h2 itemprop=\"address\" itemscope itemtype=\"http://schema.org/PostalAddress\"> <span><strong>Software Engineer</strong></span> <small itemprop=\"streetAddress\">Johannesburg, <span itemprop=\"addressCountry\">South Africa</span></small> </h2> <p> <strong itemprop=\"legalName\"><a href=\"http://www.entelect.co.za\" class=\"color-entelect\" target=\"_blank\" rel=\"noopener\" title=\"entelect\" alt=\"entelect\">Entelect</a></strong>&nbsp; really encourages all of it's employees to continuously learn, and when you are in I.T. that is extremely important.&nbsp;<strong><a href=\"http://www.entelect.co.za\" class=\"color-entelect\" target=\"_blank\" rel=\"noopener\" title=\"entelect\" alt=\"entelect\">Entelect</a></strong>&nbsp; has given me many opportunities to grow my knowledge with the crazy amount of initiatives that they allow/provide. I have been exposed to new ways of structuring code, (CI) continuous integration, (CD) Continuous delivery and much more. I have worked on a few side projects for the teams that I have been a part of. Such as a Build Monitor and Timesheet App.</p></div></article>"
         },
         {
             "title": "Co-Owner",
@@ -44,7 +44,7 @@
             "timePeriodTextColour": "#FFFFFF",
             "content": "I joined Red Ruby IT with a focus on Web Design and Web Hosting Management as well as looking into mobile application development for the android platform, with multiple android applications on the Google Play Store that I designed, latest one released was Red Ruby IT Client which allowed our clients to view details about their domains such as registration date, expiry date, recurring fee and so on. I did some work as a developer (up until December 2016), performing Website Development using ASP.Net and Mobile development with Xamarin as well as making use of Ionic to create hybrid apps.",
             "location": "Johannesburg, South Africa",
-            "pureHtml": "<article class=\"col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item\"><div class=\"card full2\" itemprop=\"worksFor\" itemscope itemtype=\"http://schema.org/Organization\"> <div class=\"top-right\"> <img src=\"assets/images/loader.svg\" data-src=\"assets/images/company/RedRubyIT.png\" class=\"company lazy invert\" alt=\"Red Ruby IT\"/> <br/> <p class=\"label label-ruby\">January 2014 – Present</p></div><h2 itemprop=\"address\" itemscope itemtype=\"http://schema.org/PostalAddress\"> <span><strong>Co-Owner</strong></span> <small itemprop=\"streetAddress\">Johannesburg, <span itemprop=\"addressCountry\">South Africa</span></small> </h2> <p>I joined&nbsp;<strong itemprop=\"legalName\"><a href=\"http://www.redrubyit.co.za\" class=\"color-ruby\" target=\"_blank\" rel=\"noopener\" title=\"redrubyit\" alt=\"redrubyit\">Red Ruby IT</a></strong>&nbsp;with a focus on Web Design and Web Hosting Management as well as looking into mobile application development for the android platform, with multiple android applications on the Google Play Store that I designed, latest one released was&nbsp;<strong><a href=\"https://play.google.com/store/apps/details?id=whmcs.redrubyit.com&hl=en\" class=\"color-ruby\" target=\"_blank\" rel=\"noopener\" title=\"redrubyit client app\" alt=\"redrubyit client app\">Red Ruby IT Client</a></strong>&nbsp; which allowed our clients to view details about their domains such as registration date, expiry date, recurring fee and so on. I did some work as a developer (up until December 2016), performing Website Development using ASP.Net and Mobile development with Xamarin as well as making use of Ionic to create hybrid apps. </p></div></article>"
+            "pureHtml": "<article class=\"col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item\"><div class=\"card\" itemprop=\"worksFor\" itemscope itemtype=\"http://schema.org/Organization\"> <div class=\"top-right\"> <img src=\"assets/images/loader.svg\" data-src=\"assets/images/company/RedRubyIT.png\" class=\"company lazy invert\" alt=\"Red Ruby IT\"/> <br/> <p class=\"label label-ruby\">January 2014 – Present</p></div><h2 itemprop=\"address\" itemscope itemtype=\"http://schema.org/PostalAddress\"> <span><strong>Co-Owner</strong></span> <small itemprop=\"streetAddress\">Johannesburg, <span itemprop=\"addressCountry\">South Africa</span></small> </h2> <p>I joined&nbsp;<strong itemprop=\"legalName\"><a href=\"http://www.redrubyit.co.za\" class=\"color-ruby\" target=\"_blank\" rel=\"noopener\" title=\"redrubyit\" alt=\"redrubyit\">Red Ruby IT</a></strong>&nbsp;with a focus on Web Design and Web Hosting Management as well as looking into mobile application development for the android platform, with multiple android applications on the Google Play Store that I designed, latest one released was&nbsp;<strong><a href=\"https://play.google.com/store/apps/details?id=whmcs.redrubyit.com&hl=en\" class=\"color-ruby\" target=\"_blank\" rel=\"noopener\" title=\"redrubyit client app\" alt=\"redrubyit client app\">Red Ruby IT Client</a></strong>&nbsp; which allowed our clients to view details about their domains such as registration date, expiry date, recurring fee and so on. I did some work as a developer (up until December 2016), performing Website Development using ASP.Net and Mobile development with Xamarin as well as making use of Ionic to create hybrid apps. </p></div></article>"
         },
         {
             "title": "Junior Sales Rep",
@@ -88,63 +88,63 @@
         }
     ],
     "certificates": [
-      {
-        "isAward": true,
-        "title": "Bsc Computer Science and Informatics",
-        "image": "assets/images/company/UJ.png",
-        "imageAlt": "University of Johannesburg",
-        "timePeriodText": "2013 – 2016",
-        "timePeriodTextAlt": "4 Years",
-        "timePeriodClass": "label-uj",
-        "content": "4 Year degree, BSCIT Extended degree.",
-        "location": "Johannesburg, South Africa"
-      },
-      {
-        "title": "Assistant / Tutor",
-        "image": "assets/images/company/UJ.png",
-        "imageAlt": "University of Johannesburg",
-        "timePeriodText": "February 2014 – July 2014",
-        "timePeriodTextAlt": "6 months",
-        "timePeriodClass": "label-uj",
-        "content": "My responsibilities included helping students find the resources they required to complete their weekly practical assignments. Give advice on their practicals and to not do the practicals for them",
-        "location": "Johannesburg, South Africa",
-        "buttons": [
-          {
-            "url": "/docs/UniversityofJohannesburg-CertificationofAssitant.jpg",
-            "alt": "CertificationofAssitant",
-            "text": "Certificate"
-          }
-        ]
-      },
-      {
-        "isAward": true,
-        "title": "BizSpark Start-up Business Development Programme",
-        "image": "assets/images/company/BizSpark.png",
-        "imageAlt": "BizSpark",
-        "timePeriodText": "March 2015 - March 2015",
-        "timePeriodTextAlt": "1 Week",
-        "timePeriodClass": "label-primary",
-        "content": "I have completed the Microsoft BizSpark Programme, which was focused on Business Development.",
-        "location": "Johannesburg, South Africa",
-        "buttons": [
-          {
-            "url": "/docs/BizSpark-CertificateofCompletion.jpg",
-            "alt": "CertificateofCompletion",
-            "text": "Certificate"
-          }
-        ]
-      },
-      {
-        "isAward": true,
-        "title": "Matriculated from King Edward VII School for Boys",
-        "image": "assets/images/company/KES.png",
-        "imageAlt": "K.E.S.",
-        "timePeriodText": "2008 - 2012",
-        "timePeriodTextAlt": "5 Years",
-        "timePeriodClass": "label-kes",
-        "content": "Matriculated with university exemption.",
-        "location": "Johannesburg, South Africa"
-      }
+        {
+            "isAward": true,
+            "title": "Bsc Computer Science and Informatics",
+            "image": "assets/images/company/UJ.png",
+            "imageAlt": "University of Johannesburg",
+            "timePeriodText": "2013 – 2016",
+            "timePeriodTextAlt": "4 Years",
+            "timePeriodClass": "label-uj",
+            "content": "4 Year degree, BSCIT Extended degree.",
+            "location": "Johannesburg, South Africa"
+        },
+        {
+            "title": "Assistant / Tutor",
+            "image": "assets/images/company/UJ.png",
+            "imageAlt": "University of Johannesburg",
+            "timePeriodText": "February 2014 – July 2014",
+            "timePeriodTextAlt": "6 months",
+            "timePeriodClass": "label-uj",
+            "content": "My responsibilities included helping students find the resources they required to complete their weekly practical assignments. Give advice on their practicals and to not do the practicals for them",
+            "location": "Johannesburg, South Africa",
+            "buttons": [
+                {
+                    "url": "/docs/UniversityofJohannesburg-CertificationofAssitant.jpg",
+                    "alt": "CertificationofAssitant",
+                    "text": "Certificate"
+                }
+            ]
+        },
+        {
+            "isAward": true,
+            "title": "BizSpark Start-up Business Development Programme",
+            "image": "assets/images/company/BizSpark.png",
+            "imageAlt": "BizSpark",
+            "timePeriodText": "March 2015 - March 2015",
+            "timePeriodTextAlt": "1 Week",
+            "timePeriodClass": "label-primary",
+            "content": "I have completed the Microsoft BizSpark Programme, which was focused on Business Development.",
+            "location": "Johannesburg, South Africa",
+            "buttons": [
+                {
+                    "url": "/docs/BizSpark-CertificateofCompletion.jpg",
+                    "alt": "CertificateofCompletion",
+                    "text": "Certificate"
+                }
+            ]
+        },
+        {
+            "isAward": true,
+            "title": "Matriculated from King Edward VII School for Boys",
+            "image": "assets/images/company/KES.png",
+            "imageAlt": "K.E.S.",
+            "timePeriodText": "2008 - 2012",
+            "timePeriodTextAlt": "5 Years",
+            "timePeriodClass": "label-kes",
+            "content": "Matriculated with university exemption.",
+            "location": "Johannesburg, South Africa"
+        }
     ],
     "projects": [
         {
@@ -200,7 +200,7 @@
             "timePeriodColour": "#227FDC",
             "timePeriodTextColour": "#FFFFFF",
             "content": "This project was the second version of the BTS Site Status website. It was rebuilt with dotnet Core and Angular 7. It was quite a challenging project as we needed have all the same functionality of the old project as well as add new features, while maintaining the old project. ",
-			"links": [
+            "links": [
                 {
                     "url": "https://app.btsra.co.za",
                     "alt": "bts portal",

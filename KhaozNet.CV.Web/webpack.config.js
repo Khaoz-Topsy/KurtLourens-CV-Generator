@@ -1,9 +1,12 @@
 const path = require('path');
+const glob = require('glob')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const bundleFileName = 'bundle';
 const dirName = 'wwwroot/dist';
+const distPath = path.resolve(__dirname, dirName);
 
 module.exports = (env, argv) => {
 	return {
@@ -14,10 +17,33 @@ module.exports = (env, argv) => {
 		],
 		output: {
 			filename: bundleFileName + '.js',
-			path: path.resolve(__dirname, dirName),
+			path: distPath,
 			library: 'KurtLourens',
 			// libraryTarget: 'window'
 		},
+		optimization: {
+			splitChunks: {
+				cacheGroups: {
+					styles: {
+						name: 'styles',
+						test: /\.css$/,
+						chunks: 'all',
+						enforce: true
+					}
+				}
+			},
+			minimizer: [
+				new OptimizeCssAssetsPlugin({
+					cssProcessorOptions: {
+						map: {
+							inline: false,
+							annotation: true,
+						},
+					},
+				}),
+			],
+		},
+		// devtool: 'source-map',
 		module: {
 			rules: [
 				{
@@ -59,6 +85,16 @@ module.exports = (env, argv) => {
 			new MiniCssExtractPlugin({
 				filename: bundleFileName + '.css'
 			}),
+			// new PurgeCSSPlugin({
+			// 	paths: glob.sync(`${distPath}/**/*`, { nodir: true }),
+			// 	trim: true,
+			// 	shorten: true,
+			// 	verbose: false,
+			// 	content: [
+			// 		'./webpack/purgeCssPleaseInclude.html',
+			// 		'./Pages/Index.cshtml',
+			// 	]
+			// }),
 		]
 	};
 };
