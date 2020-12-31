@@ -9,7 +9,7 @@
     <ul>
         <li style="list-style-type: none;">
             <img src="assets/images/loader.svg" alt="loading-animation">
-            <h2 class="largeHeading">Welcome</h2>
+            <h2 class="largeHeading">Loading</h2>
         </li>
     </ul>
 </div>
@@ -57,7 +57,7 @@
 <div id="main">
     <section id="about">
         <header class="major">
-            <h2>About Kurt Lourens</h2>
+            <h2>About Kurt Lourens&nbsp;</h2>
             <i><a href="https://about.me/kurt.lourens" target="_blank" rel="noopener noreferrer" title="about.me" alt="about.me">about.me/kurt.lourens</a></i>
         </header>
         <p>
@@ -98,35 +98,42 @@
         <div class="row" style="display: none;">
             @foreach (WorkExperience work in Model.CvData.WorkExperiences)
             {
-                <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
-                    <div class="card">
-                        <div class="top-right">
-                            <img src="@work.image" class="company lazy invert" alt="@work.imageAlt" style=""><br>
-                            @if (!string.IsNullOrEmpty(work.timePeriodTextAlt))
+                if (!string.IsNullOrEmpty(work.PureHtml))
+                {
+                    @Html.Raw(work.PureHtml)
+                }
+                else
+                {
+                    <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
+                        <div class="card">
+                            <div class="top-right">
+                                <img src="@work.Image" class="company lazy invert" alt="@work.ImageAlt" style=""><br>
+                                @if (!string.IsNullOrEmpty(work.TimePeriodTextAlt))
+                                {
+                                    <span class="tool" data-tip="@work.TimePeriodTextAlt">
+                                        <p class="label @work.TimePeriodClass">@work.TimePeriodText</p>
+                                    </span>
+                                }
+                                else
+                                {
+                                    <p class="label @work.TimePeriodClass">@work.TimePeriodText</p>
+                                }
+                            </div>
+                            <h2>
+                                <strong>@work.Title</strong>
+                                <small>@work.Location</small>
+                            </h2>
+                            @if (string.IsNullOrEmpty(work.ContentHtml))
                             {
-                                <span class="tool" data-tip="@work.timePeriodTextAlt">
-                                    <p class="label @work.timePeriodClass">@work.timePeriodText</p>
-                                </span>
+                                <p>@work.Content</p>
                             }
                             else
                             {
-                                <p class="label @work.timePeriodClass">@work.timePeriodText</p>
+                                @Html.Raw(work.ContentHtml)
                             }
                         </div>
-                        <h2>
-                            <strong>@work.title</strong>
-                            <small>@work.location</small>
-                        </h2>
-                        @if (string.IsNullOrEmpty(work.contentHtml))
-                        {
-                            <p>@work.content</p>
-                        }
-                        else
-                        {
-                            @Html.Raw(work.contentHtml)
-                        }
-                    </div>
-                </article>
+                    </article>
+                }
             }
         </div>
     </section>
@@ -141,38 +148,38 @@
                 <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
                     <div class="card">
                         <div class="top-right">
-                            <img src="@proj.image" class="company lazy invert" alt="@proj.imageAlt" style=""><br>
-                            @if (!string.IsNullOrEmpty(proj.timePeriodTextAlt))
+                            <img src="@proj.Image" class="company lazy invert" alt="@proj.ImageAlt" style=""><br>
+                            @if (!string.IsNullOrEmpty(proj.TimePeriodTextAlt))
                             {
-                                <span class="tool" data-tip="@proj.timePeriodTextAlt">
-                                    <p class="label @proj.timePeriodClass">@proj.timePeriodText</p>
+                                <span class="tool" data-tip="@proj.TimePeriodTextAlt">
+                                    <p class="label @proj.TimePeriodClass">@proj.TimePeriodText</p>
                                 </span>
                             }
                             else
                             {
-                                <p class="label @proj.timePeriodClass">@proj.timePeriodText</p>
+                                <p class="label @proj.TimePeriodClass">@proj.TimePeriodText</p>
                             }
                         </div>
                         <h2>
-                            <strong>@proj.title</strong>
-                            @if (proj.links != null && proj.links.Count > 0)
+                            <strong>@proj.Title</strong>
+                            @if (proj.Links != null && proj.Links.Count > 0)
                             {
                                 <small>
-                                    @for (int linkIndex = 0; linkIndex < proj.links.Count; linkIndex++)
+                                    @for (int linkIndex = 0; linkIndex < proj.Links.Count; linkIndex++)
                                     {
-                                        Link link = proj.links[linkIndex];
+                                        Link link = proj.Links[linkIndex];
 
-                                        string linkUrl = (link.url.Contains('?')
-                                            ? link.url + '&'
-                                            : link.url + '?') + "ref=kurtlourens.com";
-                                        <a href="@linkUrl" target="_blank" rel="noopener noreferrer" title="@link.alt" alt="@link.alt">
+                                        string linkUrl = (link.Url.Contains('?')
+                                            ? link.Url + '&'
+                                            : link.Url + '?') + "ref=kurtlourens.com";
+                                        <a href="@linkUrl" target="_blank" rel="noopener noreferrer" title="@link.Alt" alt="@link.Alt">
                                             @if (linkIndex > 0)
                                             {
-                                                @Html.Raw(", " + link.text)
+                                                @Html.Raw(", " + link.Text)
                                             }
                                             else
                                             {
-                                                @link.text
+                                                @link.Text
                                             }
                                         </a>
                                     }
@@ -180,16 +187,16 @@
                             }
                             else
                             {
-                                <small>@proj.location</small>
+                                <small>@proj.Location</small>
                             }
                         </h2>
-                        @if (string.IsNullOrEmpty(proj.contentHtml))
+                        @if (string.IsNullOrEmpty(proj.ContentHtml))
                         {
-                            <p>@proj.content</p>
+                            <p>@proj.Content</p>
                         }
                         else
                         {
-                            @Html.Raw(proj.contentHtml)
+                            @Html.Raw(proj.ContentHtml)
                         }
                     </div>
                 </article>
@@ -207,27 +214,27 @@
                 <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
                     <div class="card">
                         <div class="top-right">
-                            <img src="@cert.image" class="company lazy invert" alt="@cert.imageAlt" style=""><br>
-                            @if (!string.IsNullOrEmpty(cert.timePeriodTextAlt))
+                            <img src="@cert.Image" class="company lazy invert" alt="@cert.ImageAlt" style=""><br>
+                            @if (!string.IsNullOrEmpty(cert.TimePeriodTextAlt))
                             {
-                                <span class="tool" data-tip="@cert.timePeriodTextAlt">
-                                    <p class="label @cert.timePeriodClass">@cert.timePeriodText</p>
+                                <span class="tool" data-tip="@cert.TimePeriodTextAlt">
+                                    <p class="label @cert.TimePeriodClass">@cert.TimePeriodText</p>
                                 </span>
                             }
                             else
                             {
-                                <p class="label @cert.timePeriodClass">@cert.timePeriodText</p>
+                                <p class="label @cert.TimePeriodClass">@cert.TimePeriodText</p>
                             }
                         </div>
                         <h2>
-                            <strong>@cert.title</strong>
-                            <small>@cert.location</small>
+                            <strong>@cert.Title</strong>
+                            <small>@cert.Location</small>
                         </h2>
-                        <p>@cert.content</p>
+                        <p>@cert.Content</p>
                         <div class="pretty-button-container">
-                            @foreach (Button button in (cert.buttons ?? new List<Button>()))
+                            @foreach (Link button in (cert.Buttons ?? new List<Link>()))
                             {
-                                <a href="@button.url" target="_blank" rel="noopener noreferrer" class="pretty-button -blue" title="@button.alt" alt="@button.alt">@button.text</a>
+                                <a href="@button.Url" target="_blank" rel="noopener noreferrer" class="pretty-button -blue" title="@button.Alt" alt="@button.Alt">@button.Text</a>
                             }
                         </div>
                     </div>
@@ -306,9 +313,6 @@
         <ul class="copyright">
             <li>
                 &copy; Kurt Lourens
-            </li>
-            <li>
-                Design:&nbsp;<a href="https://html5up.net/strata" target="_blank" rel="noopener noreferrer" title="html5up.net">HTML5 UP Strata</a>
             </li>
         </ul>
     </div>

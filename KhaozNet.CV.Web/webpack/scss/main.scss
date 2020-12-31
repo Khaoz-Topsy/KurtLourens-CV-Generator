@@ -456,11 +456,9 @@ header {
     }
 
     &.major {
-        margin-bottom: 1em;
-
         h2 {
             font-size: 2em;
-            margin-bottom: 0;
+            display: inline-block;
         }
     }
 }
@@ -1217,6 +1215,7 @@ input[type="button"],
 #footer {
     .icons {
         margin: (_size(element-margin) * 0.5) 0 0 0;
+        text-align: center;
 
         a {
             color: _palette(accent2, fg-light);
@@ -1229,6 +1228,7 @@ input[type="button"],
         list-style: none;
         margin: (_size(element-margin) * 0.5) 0 0 0;
         padding: 0;
+        text-align: center;
 
         li {
             border-left: solid 1px _palette(accent2, border);

@@ -73,7 +73,8 @@ small {
 
     footer {
         position: absolute;
-        bottom: 2em;
+        bottom: 1em;
+        left: 0;
     }
 }
 
@@ -167,7 +168,8 @@ h2.noselect,
 li>a>img {
     margin-bottom: -5px;
     max-height: 1.75em;
-    max-width: 1.75em;;
+    max-width: 1.75em;
+    ;
 }
 
 .icon.icon-2x {

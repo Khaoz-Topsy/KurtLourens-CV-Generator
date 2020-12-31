@@ -1,16 +1,10 @@
 import $ from './jquery';
 
+const announcementDismissalTimeInMilli = 10000;
+
 export function clearAnnouncements(element) {
     $(element).remove();
-
-    //$('#announcements > p::nth-child(' + childNum + ')').remove();
 }
-
-// function getAnnouncements() {
-//     $.get('https://kurtlourens-cv-backend.azurewebsites.net/api/AnnouncementsV1', function (dataArray) {
-//         displayAnnouncements(dataArray);
-//     });
-// }
 
 export function getAnnouncements() {
     $.ajax({
@@ -19,8 +13,25 @@ export function getAnnouncements() {
         beforeSend: function (xhr) { xhr.setRequestHeader('apikey', 'RC_f3233311c1a97b5bfc77a6bf390933d9bf0c9194'); },
         success: function (result) {
             displayStatus(result.settings.announcements);
+            setTimeout(() => {
+                removeAnnouncement()
+            }, announcementDismissalTimeInMilli);
         }
     });
+}
+
+function removeAnnouncement() {
+    var items = $("#announcements").children();
+    if (items == null) return;
+    if (items.length < 1) return;
+
+    clearAnnouncements(items[0]);
+
+    if (items.length < 2) return;
+
+    setTimeout(() => {
+        removeAnnouncement();
+    }, announcementDismissalTimeInMilli / 3);
 }
 
 function displayStatus(statusValue) {
