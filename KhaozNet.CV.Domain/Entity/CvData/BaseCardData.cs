@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace KhaozNet.CV.Domain.Entity
+namespace KhaozNet.CV.Domain.Entity.CvData
 {
     public class BaseCardData
     {

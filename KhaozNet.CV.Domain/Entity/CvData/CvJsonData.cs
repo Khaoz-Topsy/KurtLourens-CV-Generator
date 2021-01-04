@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using KhaozNet.CV.Domain.Entity.Blog;
 using Newtonsoft.Json;
 
-namespace KhaozNet.CV.Domain.Entity
+namespace KhaozNet.CV.Domain.Entity.CvData
 {
     public class CvJsonData
     {
@@ -16,5 +17,7 @@ namespace KhaozNet.CV.Domain.Entity
 
         [JsonProperty("projects")]
         public List<Project> Projects { get; set; }
+
+        public List<BlogItem> BlogPosts { get; set; }
     }
 }

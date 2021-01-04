@@ -1,4 +1,6 @@
 ﻿@using KhaozNet.CV.Domain.Entity
+@using KhaozNet.CV.Domain.Entity.Blog
+@using KhaozNet.CV.Domain.Entity.CvData
 @model KhaozNet.CV.Web.Pages.IndexModel;
 @{
     Layout = "./Shared/_Layout.cshtml";
@@ -67,7 +69,8 @@
                 <a href="https://www.redrubyit.co.za" class="color-ruby" target="_blank" rel="noopener noreferrer" title="RedRubyIT" alt="RedRubyIT">
                     Red Ruby IT
                 </a>
-            </strong>&nbsp; and I am so lucky to be doing something that I love. My goal is to continue learning all that I can and to live on the bleeding edge of tech until it bites me in the ass 😂. I am currently living in&nbsp;<a href="https://goo.gl/maps/94uXM5Mgd362" target="_blank" rel="noopener noreferrer" title="Johannesburg, South africa">&nbsp;Johannesburg, South Africa 🌍
+            </strong>&nbsp; and I am so lucky to be doing something that I love. My goal is to continue learning all that I can and to live on the bleeding edge of tech until it bites me in the ass 😂. I am currently living in&nbsp;<a href="https://goo.gl/maps/94uXM5Mgd362" target="_blank" rel="noopener noreferrer" title="Johannesburg, South africa">
+                &nbsp;Johannesburg, South Africa 🌍
             </a>.
         </p>
         <small>
@@ -88,28 +91,28 @@
         <div class="row" style="display: none;">
             @foreach (WorkExperience work in Model.CvData.WorkExperiences)
             {
-                <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
-                    <div class="card">
-                        <div class="top-right">
-                            <img src="@work.Image" class="company lazy invert" alt="@work.ImageAlt"><br>
-                            @if (!string.IsNullOrEmpty(work.TimePeriodTextAlt))
+            <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
+                <div class="card">
+                    <div class="top-right">
+                        <img src="@work.Image" class="company lazy invert" alt="@work.ImageAlt"><br>
+                        @if (!string.IsNullOrEmpty(work.TimePeriodTextAlt))
                             {
-                                <span class="tool" data-tip="@work.TimePeriodTextAlt">
-                                    <p class="label @work.TimePeriodClass">@work.TimePeriodText</p>
-                                </span>
+                        <span class="tool" data-tip="@work.TimePeriodTextAlt">
+                            <p class="label @work.TimePeriodClass">@work.TimePeriodText</p>
+                        </span>
                             }
                             else
                             {
-                                <p class="label @work.TimePeriodClass">@work.TimePeriodText</p>
+                        <p class="label @work.TimePeriodClass">@work.TimePeriodText</p>
                             }
-                        </div>
-                        <h2>
-                            <strong>@work.Title</strong>
-                            <small>@work.Location</small>
-                        </h2>
-                        <p>@work.Content</p>
                     </div>
-                </article>
+                    <h2>
+                        <strong>@work.Title</strong>
+                        <small>@work.Location</small>
+                    </h2>
+                    <p>@work.Content</p>
+                </div>
+            </article>
             }
         </div>
     </section>
@@ -121,54 +124,54 @@
         <div class="row" style="display: none;">
             @foreach (Project proj in Model.CvData.Projects)
             {
-                <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
-                    <div class="card">
-                        <div class="top-right">
-                            <img src="@proj.Image" class="company lazy invert" alt="@proj.ImageAlt"><br>
-                            @if (!string.IsNullOrEmpty(proj.TimePeriodTextAlt))
+            <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
+                <div class="card">
+                    <div class="top-right">
+                        <img src="@proj.Image" class="company lazy invert" alt="@proj.ImageAlt"><br>
+                        @if (!string.IsNullOrEmpty(proj.TimePeriodTextAlt))
                             {
-                                <span class="tool" data-tip="@proj.TimePeriodTextAlt">
-                                    <p class="label @proj.TimePeriodClass">@proj.TimePeriodText</p>
-                                </span>
+                        <span class="tool" data-tip="@proj.TimePeriodTextAlt">
+                            <p class="label @proj.TimePeriodClass">@proj.TimePeriodText</p>
+                        </span>
                             }
                             else
                             {
-                                <p class="label @proj.TimePeriodClass">@proj.TimePeriodText</p>
+                        <p class="label @proj.TimePeriodClass">@proj.TimePeriodText</p>
                             }
-                        </div>
-                        <h2>
-                            <strong>@proj.Title</strong>
-                            @if (proj.Links != null && proj.Links.Count > 0)
+                    </div>
+                    <h2>
+                        <strong>@proj.Title</strong>
+                        @if (proj.Links != null && proj.Links.Count > 0)
                             {
-                                <small>
-                                    @for (int linkIndex = 0; linkIndex < proj.Links.Count; linkIndex++)
+                        <small>
+                            @for (int linkIndex = 0; linkIndex < proj.Links.Count; linkIndex++)
                                     {
                                         Link link = proj.Links[linkIndex];
 
                                         string linkUrl = (link.Url.Contains('?')
                                             ? link.Url + '&'
                                             : link.Url + '?') + "ref=kurtlourens.com";
-                                        <a href="@linkUrl" target="_blank" rel="noopener noreferrer" title="@link.Alt" alt="@link.Alt">
-                                            @if (linkIndex > 0)
+                            <a href="@linkUrl" target="_blank" rel="noopener noreferrer" title="@link.Alt" alt="@link.Alt">
+                                @if (linkIndex > 0)
                                             {
-                                                @(", " + link.Text)
+                                @(", " + link.Text)
                                             }
                                             else
                                             {
-                                                @link.Text
+                                @link.Text
                                             }
-                                        </a>
+                            </a>
                                     }
-                                </small>
+                        </small>
                             }
                             else
                             {
-                                <small>@proj.Location</small>
+                        <small>@proj.Location</small>
                             }
-                        </h2>
-                        <p>@proj.Content</p>
-                    </div>
-                </article>
+                    </h2>
+                    <p>@proj.Content</p>
+                </div>
+            </article>
             }
         </div>
     </section>
@@ -180,31 +183,63 @@
         <div class="row" style="display: none;">
             @foreach (Certificate cert in Model.CvData.Certificates)
             {
-                <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
-                    <div class="card">
-                        <div class="top-right">
-                            <img src="@cert.Image" class="company lazy invert" alt="@cert.ImageAlt"><br>
-                            @if (!string.IsNullOrEmpty(cert.TimePeriodTextAlt))
+            <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
+                <div class="card">
+                    <div class="top-right">
+                        <img src="@cert.Image" class="company lazy invert" alt="@cert.ImageAlt"><br>
+                        @if (!string.IsNullOrEmpty(cert.TimePeriodTextAlt))
                             {
-                                <span class="tool" data-tip="@cert.TimePeriodTextAlt">
-                                    <p class="label @cert.TimePeriodClass">@cert.TimePeriodText</p>
-                                </span>
+                        <span class="tool" data-tip="@cert.TimePeriodTextAlt">
+                            <p class="label @cert.TimePeriodClass">@cert.TimePeriodText</p>
+                        </span>
                             }
                             else
                             {
-                                <p class="label @cert.TimePeriodClass">@cert.TimePeriodText</p>
+                        <p class="label @cert.TimePeriodClass">@cert.TimePeriodText</p>
+                            }
+                    </div>
+                    <h2>
+                        <strong>@cert.Title</strong>
+                        <small>@cert.Location</small>
+                    </h2>
+                    <p>@cert.Content</p>
+                    <div class="pretty-button-container">
+                        @foreach (Link button in (cert.Buttons ?? new List<Link>()))
+                            {
+                        <a href="@button.Url" target="_blank" rel="noopener noreferrer" class="pretty-button -blue" title="@button.Alt" alt="@button.Alt">@button.Text</a>
+                            }
+                    </div>
+                </div>
+            </article>
+            }
+        </div>
+    </section>
+
+    <section id="recentPosts">
+        <h2 class="noselect" onclick="KurtLourens.toggleChildRowVisibility('recentPosts')">
+            Latest Blog Posts&nbsp;<i class="icon icon-chevron-up upsideDown"></i>
+        </h2>
+        <div class="row" style="display: none;">
+            @foreach (BlogItem blog in Model.CvData.BlogPosts)
+            {
+                <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="@blog.Image" alt="@blog.Title" />
+                        </div>
+                        <div class="ta-center">
+                            @foreach(var tag in blog.Categories)
+                            {
+                                <p class="label label-kurt">@tag</p>
                             }
                         </div>
-                        <h2>
-                            <strong>@cert.Title</strong>
-                            <small>@cert.Location</small>
+                        <h2 class="m-0 ta-center">
+                            <strong>@blog.Title</strong>
                         </h2>
-                        <p>@cert.Content</p>
+                        <p class="ta-center">@blog.Description</p>
+                        @*<p class="ta-center">@(blog.Date.ToString("yyyy-MM-dd"))</p>*@
                         <div class="pretty-button-container">
-                            @foreach (Link button in (cert.Buttons ?? new List<Link>()))
-                            {
-                                <a href="@button.Url" target="_blank" rel="noopener noreferrer" class="pretty-button -blue" title="@button.Alt" alt="@button.Alt">@button.Text</a>
-                            }
+                            <a href="@blog.Link" class="pretty-button -blue" title="@blog.Title" alt="@blog.Title">Read on blog.kurtlourens.com</a>
                         </div>
                     </div>
                 </article>

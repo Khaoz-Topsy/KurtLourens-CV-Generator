@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 using KhaozNet.CV.Domain;
-using KhaozNet.CV.Domain.Entity;
+using KhaozNet.CV.Domain.Entity.Blog;
+using KhaozNet.CV.Domain.Entity.CvData;
 using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
+using KhaozNet.CV.Integration.Repository;
 
 namespace KhaozNet.CV.Web.Pages
 {
@@ -18,13 +22,14 @@ namespace KhaozNet.CV.Web.Pages
             _hostingEnvironment = hostingEnvironment;
         }
 
-        public Task OnGet()
+        public async Task OnGet()
         {
             string contentRootPath = _hostingEnvironment.ContentRootPath;
-            string cvDataJson = System.IO.File.ReadAllText(contentRootPath + "/cv.json");
+            string cvDataJson = await System.IO.File.ReadAllTextAsync(contentRootPath + "/cv.json");
             CvData = JsonConvert.DeserializeObject<CvJsonData>(cvDataJson);
 
-            return Task.CompletedTask;
+            BlogRssRepository blogRepo = new BlogRssRepository();
+            CvData.BlogPosts = (await blogRepo.GetItems()).Take(4).ToList();
         }
     }
 }

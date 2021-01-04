@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace KhaozNet.CV.Domain.Entity
+namespace KhaozNet.CV.Domain.Entity.CvData
 {
     public class Link
     {
