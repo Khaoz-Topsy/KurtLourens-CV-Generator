@@ -43,12 +43,12 @@
             <h4>@description</h4>
         }
         <div id="pwa-install" class="mt-1 hidden cursor-pointer" onclick="KurtLourens.addToHomeScreen()">
-            <img src="assets/images/pwa.png" class="max-h-50" alt="Install as PWA" />
+            <img src="assets/images/loader.svg" data-src="assets/images/pwa.png" class="max-h-50 lazy" alt="Install as PWA" />
         </div>
         <div>
             <a href="https://play.google.com/store/apps/details?id=com.kurt_lourens_cv" class="image"
                title="Kurt Lourens CV App" alt="PlayStoreBadge" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/playStore.png" class="max-h-50" alt="PlayStoreBadge" />
+                <img src="assets/images/loader.svg" data-src="assets/images/playStore.png" class="max-h-50 lazy" alt="PlayStoreBadge" />
             </a>
         </div>
     </div>
@@ -94,7 +94,7 @@
             <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
                 <div class="card">
                     <div class="top-right">
-                        <img src="@work.Image" class="company lazy invert" alt="@work.ImageAlt"><br>
+                        <img src="assets/images/loader.svg" data-src="@work.Image" class="company lazy invert" alt="@work.ImageAlt"><br>
                         @if (!string.IsNullOrEmpty(work.TimePeriodTextAlt))
                             {
                         <span class="tool" data-tip="@work.TimePeriodTextAlt">
@@ -127,7 +127,7 @@
             <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
                 <div class="card">
                     <div class="top-right">
-                        <img src="@proj.Image" class="company lazy invert" alt="@proj.ImageAlt"><br>
+                        <img src="assets/images/loader.svg" data-src="@proj.Image" class="company lazy invert" alt="@proj.ImageAlt"><br>
                         @if (!string.IsNullOrEmpty(proj.TimePeriodTextAlt))
                             {
                         <span class="tool" data-tip="@proj.TimePeriodTextAlt">
@@ -186,7 +186,7 @@
             <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
                 <div class="card">
                     <div class="top-right">
-                        <img src="@cert.Image" class="company lazy invert" alt="@cert.ImageAlt"><br>
+                        <img src="assets/images/loader.svg" data-src="@cert.Image" class="company lazy invert" alt="@cert.ImageAlt"><br>
                         @if (!string.IsNullOrEmpty(cert.TimePeriodTextAlt))
                             {
                         <span class="tool" data-tip="@cert.TimePeriodTextAlt">
@@ -225,9 +225,9 @@
                 <article class="col-6 col-12-large col-12-medium col-12-small col-12-xsmall work-item">
                     <div class="card">
                         <div class="card-image">
-                            <img src="@blog.Image" alt="@blog.Title" />
+                            <img src="assets/images/loader.svg" class="lazy" data-src="@blog.Image" alt="@blog.Title" />
                         </div>
-                        <div class="ta-center">
+                        <div class="tag-list ta-center">
                             @foreach(var tag in blog.Categories)
                             {
                                 <p class="label label-kurt">@tag</p>
@@ -239,7 +239,7 @@
                         <p class="ta-center">@blog.Description</p>
                         @*<p class="ta-center">@(blog.Date.ToString("yyyy-MM-dd"))</p>*@
                         <div class="pretty-button-container">
-                            <a href="@blog.Link" class="pretty-button -blue" title="@blog.Title" alt="@blog.Title">Read on blog.kurtlourens.com</a>
+                            <a href="@blog.Link" class="pretty-button -blue" target="_blank" rel="noopener noreferrer" title="@blog.Title" alt="@blog.Title">Read on blog.kurtlourens.com</a>
                         </div>
                     </div>
                 </article>
@@ -262,8 +262,8 @@
             </p>
             <div class="col-12">
                 <span>As part of the redesign this website has an automated CI / CD pipeline:&nbsp;</span>
-                <img src="https://khaoznet.visualstudio.com/KhaozNet/_apis/build/status/KhaozNet.CV.v2%20-%20CI" alt="Website build status" />
-                <img src="https://vsrm.dev.azure.com/khaoznet/_apis/public/Release/badge/b5441643-fd7c-4330-92d7-bffc23a7e0a4/15/20" alt="Website deployment status" />
+                <img src="assets/images/loader.svg" class="lazy" data-src="https://khaoznet.visualstudio.com/KhaozNet/_apis/build/status/KhaozNet.CV.v2%20-%20CI" alt="Website build status" />
+                <img src="assets/images/loader.svg" class="lazy" data-src="https://vsrm.dev.azure.com/khaoznet/_apis/public/Release/badge/b5441643-fd7c-4330-92d7-bffc23a7e0a4/15/20" alt="Website deployment status" />
             </div>
             <div class="col-12">
                 <span>
@@ -272,8 +272,8 @@
                         <a href="https://play.google.com/store/apps/details?id=com.kurt_lourens_cv" target="_blank" rel="noopener noreferrer" title="GooglePlayStoreKurt'sCVApp" alt="GooglePlayStoreKurt'sCVApp">Flutter CV App</a>
                     </strong>&nbsp;also has an automated CI / CD pipeline:&nbsp;
                 </span>
-                <img src="https://khaoznet.visualstudio.com/KhaozNet/_apis/build/status/KhaozNet.FlutterCV%20-%20CI" alt="Website build status" />
-                <img src="https://khaoznet.vsrm.visualstudio.com/_apis/public/Release/badge/b5441643-fd7c-4330-92d7-bffc23a7e0a4/18/25" alt="Website deployment status" />
+                <img src="assets/images/loader.svg" class="lazy" data-src="https://khaoznet.visualstudio.com/KhaozNet/_apis/build/status/KhaozNet.FlutterCV%20-%20CI" alt="Website build status" />
+                <img src="assets/images/loader.svg" class="lazy" data-src="https://khaoznet.vsrm.visualstudio.com/_apis/public/Release/badge/b5441643-fd7c-4330-92d7-bffc23a7e0a4/18/25" alt="Website deployment status" />
             </div>
             <div class="col-12">
                 <p>
@@ -300,7 +300,7 @@
                 {
                     <li>
                         <a href="@linkUrl" rel="noopener noreferrer me" class="@social.ClassNames" alt="@social.Title" title="@social.Title" aria-label="@social.Title">
-                            <img src="@social.Image" class="@social.ClassNames" alt="@social.Title" title="@social.Title" aria-label="@social.Title" />
+                            <img src="assets/images/loader.svg" data-src="@social.Image" class="lazy @social.ClassNames" alt="@social.Title" title="@social.Title" aria-label="@social.Title" />
                         </a>
                     </li>
                     continue;

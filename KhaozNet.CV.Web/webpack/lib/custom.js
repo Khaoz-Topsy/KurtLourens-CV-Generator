@@ -10,9 +10,12 @@ window.onload = function () {
     // if (raf) raf(function () { window.setTimeout(loadDeferredStyles, 0); });
     // else window.addEventListener('load', loadDeferredStyles);
 
-    var instance = $("img.lazy").Lazy({ effect: "fadeIn", chainable: false });
+    updateLazyLoadedImagesFromSelector(".inner img.lazy[data-src]");
 
-    window.setTimeout(afterDocumentLoad(instance), 500);
+    removeLoader();
+    announcement.getAnnouncements();
+
+    window.setTimeout(updateAllLazyLoadedImages, 10000);
 }
 
 var deferredPrompt;
@@ -48,10 +51,19 @@ export function addToHomeScreen() {
 //     addStylesNode.parentElement.removeChild(addStylesNode);
 // }
 
-function afterDocumentLoad(instance) {
+function updateLazyLoadedImagesFromSelector(selector) {
+    var instance = $(selector).Lazy({ effect: "fadeIn", chainable: false });
     instance.update();
-    removeLoader();
-    announcement.getAnnouncements();
+}
+
+function updateAllLazyLoadedImages() {
+    console.log('updateAllLazyLoadedImages');
+    updateLazyLoadedImagesFromSelector("img.lazy[data-src]");
+}
+
+function updateLazyLoadedImagesPerSection(id) {
+    console.log(`updateLazyLoadedImages for #${id}`);
+    updateLazyLoadedImagesFromSelector(`#${id} img.lazy[data-src]`);
 }
 
 function removeLoader() {
@@ -84,8 +96,7 @@ export function toggleChildRowVisibility(selector) {
     $('#' + selector + '>h2>i').toggleClass('upsideDown');
     $('#' + selector).children('.row').toggle();
 
-    var instance = $("img.lazy").Lazy({ effect: "fadeIn", chainable: false });
-    instance.update();
+    updateLazyLoadedImagesPerSection(selector);
 }
 
 export function darkModeToggle() {

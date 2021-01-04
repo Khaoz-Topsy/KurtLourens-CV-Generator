@@ -186,6 +186,7 @@ li>a>img {
     margin: -1em -1.25em -0.25em;
 
     img {
+        background-color: #505050;
         width: 100%;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
@@ -198,4 +199,10 @@ li>a>img {
 
 .m-0 {
     margin: 0;
+}
+
+.tag-list {
+    p {
+        margin: 0 2px;
+    }
 }
